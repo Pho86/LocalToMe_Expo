@@ -6,7 +6,7 @@ import AppText from "./AppText";
 const ButtonCont = styled(TouchableOpacity)`
 backgroundColor:${Colours.primary};
 padding:5px;
-width:350px;
+width:325px;
 height:65px;
 border-radius:12px;
 display:flex;

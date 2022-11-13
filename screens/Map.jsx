@@ -168,12 +168,13 @@ export async function getServerSideProps(context) {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
    },
    map: {
       width: Dimensions.get('window').width,
       height: Dimensions.get('window').height,
+      flex:1,
    },
 });
