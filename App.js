@@ -1,27 +1,24 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MapScreen from './screens/Map'
-import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
+import MapScreen from './screens/Map';
+import HomeScreen from './screens/Home';
+import { ScrollView } from 'react-native';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer >
-      {/* <View> */}
-        <Stack.Navigator initialRouteName='Map'>
+      {/* <ScrollView> */}
+        <Stack.Navigator initialRouteName='Home' 
+        screenOptions={{
+          headerShown: false
+        }}>
+          <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Map" component={MapScreen} />
         </Stack.Navigator>
-      {/* </View> */}
+      {/* </ScrollView> */}
     </NavigationContainer>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
