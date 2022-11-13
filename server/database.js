@@ -14,7 +14,7 @@ export async function getFoodBanks() {
   return foodBanks;
 }
 
-// get every event for the map
+// retreive every event for map
 export async function getEvents() {
   const eventCollection = collection(db, "event");
   const eventSnap = await getDocs(eventCollection);
@@ -27,7 +27,7 @@ export async function getEvents() {
 }
 
 
-// get all the pantries for map
+// retreive all the pantries for map
 export async function getPantries() {
   const pantryCol = collection(db, "pantry");
   const pantrySnap = await getDocs(pantryCol);
@@ -39,7 +39,7 @@ export async function getPantries() {
   return pantries;
 }
 
-// get all the fridges for map
+// retreive all the fridges for map
 export async function getFridges() {
   const fridgeCol = collection(db, "fridge");
   const fridgeSnap = await getDocs(fridgeCol);

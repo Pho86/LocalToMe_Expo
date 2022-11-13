@@ -46,6 +46,7 @@ export default function MapScreen({ navigation }) {
       const fridgeList = JSON.parse(JSON.stringify(fridgeData));
       setFridges(fridgeList)
    }
+
    useEffect(() => {
       parseLocationInfo();
    }, []);
@@ -63,6 +64,7 @@ export default function MapScreen({ navigation }) {
             showsUserLocation
             style={styles.map}
          >
+            
             {food_banks.map((food_bank) => {
                if (food_bank.latitude && food_bank.longitude) {
                   return <Marker key={food_bank.id}
@@ -82,6 +84,7 @@ export default function MapScreen({ navigation }) {
                   </Marker>
                }
             })}
+
             {pantries.map((pantry) => {
                return <Marker key={pantry.id}
                   coordinate={{
@@ -99,6 +102,7 @@ export default function MapScreen({ navigation }) {
                   </MapCallOut>
                </Marker>
             })}
+
             {fridges.map((fridge) => {
                return <Marker key={fridge.id}
                   coordinate={{
@@ -116,6 +120,7 @@ export default function MapScreen({ navigation }) {
                   </MapCallOut>
                </Marker>
             })}
+
             {events.map((event) => {
                if (event.latitude && event.longitude) {
                   return <Marker key={event.id}
@@ -140,29 +145,6 @@ export default function MapScreen({ navigation }) {
          </MapView>
       </View>
    )
-}
-
-export async function getServerSideProps(context) {
-
-   // Everything in this function happens on the server
-   const foodBanksData = await getFoodBanks();
-   const foodBanksList = JSON.parse(JSON.stringify(foodBanksData));
-
-   //get events from database
-   const req = await getEvents();
-   const eventList = JSON.parse(JSON.stringify(req));
-
-   //get pantries from database
-   const pantriesData = await getPantries();
-   const pantriesList = JSON.parse(JSON.stringify(pantriesData));
-
-   //get fridge from database
-   const fridgesData = await getFridges();
-   const fridgesList = JSON.parse(JSON.stringify(fridgesData));
-
-   return {
-      props: { foodBanksList, eventList, pantriesList, fridgesList }, // will be passed to the page component as props
-   };
 }
 
 const styles = StyleSheet.create({
