@@ -2,11 +2,12 @@ import styled from "styled-components/native";
 import { Text, View, Button, TouchableOpacity } from "react-native";
 import { Colours } from "../styles";
 import AppText from "./AppText";
+import { Dimensions } from 'react-native';
 
 const ButtonCont = styled(TouchableOpacity)`
 backgroundColor:${Colours.primary};
 padding:5px;
-width:325px;
+width:${Dimensions.get('window').width*.80}px;
 height:65px;
 border-radius:12px;
 display:flex;

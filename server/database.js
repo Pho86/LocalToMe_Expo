@@ -51,3 +51,52 @@ export async function getFridges() {
   return fridges;
 }
 
+
+
+
+
+
+// maybe add in future
+
+export async function getEvent(id) {
+  const eventRef = doc(db, "event", id);
+  const eventSnap = await getDoc(eventRef);
+  const fileUrl = eventSnap.data().eventImage;
+  let fileName = decodeURIComponent(fileUrl.split('/').pop().split('?')[0])
+  const event = { id, ...eventSnap.data(), fileName };
+  const eventCreatorSnap = await getDoc(event.eventCreatorId);//should change the eventCreatorId to eventCreatorData
+  const eventCreator = { id: eventCreatorSnap.id, ...eventCreatorSnap.data() };
+  const joinedEvent = {
+    ...event,
+    eventCreatorId: eventCreator
+  }
+  return joinedEvent;
+  // console.log('what is', event, eventCreator)
+}
+
+
+export async function getAllNews() {
+  const newsCollection = collection(db, "news");
+  const newsSnap = await getDocs(newsCollection);
+  const news = await Promise.all(newsSnap.docs.map(async (doc) => {
+    let id = doc.id;
+    let data = doc.data();
+    let userSnap = await getDoc(data.newsCreatorId);
+    let user = userSnap.data();
+    return { id, ...data, newsCreatorId: user };
+  }));
+  return news;
+}
+
+
+//one news item
+export async function getNews(id) {
+  const newsRef = doc(db, "news", id);
+  const newsSnap = await getDoc(newsRef);
+  const fileUrl = newsSnap.data().newsImage;
+  let fileName = decodeURIComponent(fileUrl.split('/').pop().split('?')[0])
+  // console.log(fileName)
+  const news = { id, ...newsSnap.data(), fileName };
+  // console.log('hi', news)
+  return news;
+}
