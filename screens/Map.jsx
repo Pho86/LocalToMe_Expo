@@ -12,28 +12,27 @@ import { Chou } from '../components/Toast';
 
 const MapCallOut = styled(Callout)`
 max-width:275px;
-height:250px;
-background:white;
-padding:3% 4%;
 `
 
 const MapPopUp = styled(View)`
-// width:100%;
-// max-height:500px;
-// min-height:150px;
+padding:4% 5%;
+background:white;
+height:275px;
+border-radius:20px;
 `
+
 const Header = styled(Text)`
 fontSize:18px;
 fontWeight:800;
 `
 
 const BoldText = styled(Text)`
-fontWeight:500;
+fontWeight:600;
 `
 
 export default function MapScreen({ navigation }) {
    const [Loaded, SetLoaded] = useState(false)
-   const [Toasty, ShowToasty] = useState(true);
+   const [Toasty, ShowToasty] = useState(false);
 
    const [pantries, setPantries] = useState([]);
    const [fridges, setFridges] = useState([]);
@@ -64,18 +63,17 @@ export default function MapScreen({ navigation }) {
    return (
       <View>
 
-
          <Container>
-
             <MapView
+               showsUserLocation
                initialRegion={{
                   latitude: 49.256280,
                   longitude: -123.075594,
                   latitudeDelta: 0.1,
                   longitudeDelta: 0.1,
                }}
-               showsUserLocation
-               style={styles.map}
+               style={styles.map} 
+               onPress={()=>ShowToasty(false)}
             >
 
                {food_banks.map((food_bank) => {
@@ -87,12 +85,14 @@ export default function MapScreen({ navigation }) {
                         }}
                         image={require('../assets/Pins/Food_Bank_Pin.png')}
                      >
-                        <MapCallOut tooltip onPress={() => { Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${food_bank.location_address}`) }} >
-                           <Header>{food_bank.program_name}</Header>
-                           <Text><BoldText>Location:</BoldText> {food_bank.location_address}</Text>
-                           {food_bank.organization_name && <Text><BoldText>Organization Name:</BoldText> {food_bank.organization_name}</Text>}
-                           {food_bank.signup_email && <Text><BoldText>Email:</BoldText> {food_bank.signup_email}</Text>}
-                           {food_bank.description && <Text><BoldText>Description:</BoldText> {food_bank.description.substring(0, 250) + "..."}</Text>}
+                        <MapCallOut tooltip onPress={() => { ShowToasty(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${food_bank.location_address}`) }} >
+                           <MapPopUp>
+                              <Header>{food_bank.program_name}</Header>
+                              <Text><BoldText>Location:</BoldText> {food_bank.location_address}</Text>
+                              {food_bank.organization_name && <Text><BoldText>Organization Name:</BoldText> {food_bank.organization_name}</Text>}
+                              {food_bank.signup_email && <Text><BoldText>Email:</BoldText> {food_bank.signup_email}</Text>}
+                              {food_bank.description && <Text><BoldText>Description:</BoldText> {food_bank.description.length < 250 && food_bank.description}{food_bank.description.length > 250 && food_bank.description.substring(0, 250) + "..."}</Text>}
+                           </MapPopUp>
                         </MapCallOut>
                      </Marker>
                   }
@@ -106,11 +106,11 @@ export default function MapScreen({ navigation }) {
                      }}
                      image={require('../assets/Pins/Pantry_Pin.png')}
                   >
-                     <MapCallOut onPress={() => { Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip >
+                     <MapCallOut onPress={() => { ShowToasty(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip >
                         <MapPopUp>
                            <Header>{pantry.name}</Header>
                            <Text><BoldText>Location:</BoldText> {pantry.location}</Text>
-                           <Text><BoldText>Description:</BoldText> {pantry.description.substring(0, 250) + "..."}</Text>
+                           <Text><BoldText>Description:</BoldText> {pantry.description.length < 250 && pantry.description}{pantry.description.length > 250 && pantry.description.substring(0, 250) + "..."}</Text>
                         </MapPopUp>
                      </MapCallOut>
                   </Marker>
@@ -124,11 +124,11 @@ export default function MapScreen({ navigation }) {
                      }}
                      image={require('../assets/Pins/Fridge_Pin.png')}
                   >
-                     <MapCallOut onPress={() => { Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.location}`) }} tooltip >
+                     <MapCallOut onPress={() => { ShowToasty(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.location}`) }} tooltip >
                         <MapPopUp>
                            <Header>{fridge.name}</Header>
                            <Text><BoldText>Location:</BoldText> {fridge.location}</Text>
-                           <Text><BoldText>Description:</BoldText> {fridge.description.substring(0, 250) + "..."}</Text>
+                           <Text><BoldText>Description:</BoldText> {fridge.description.length < 250 && fridge.description}{fridge.description.length > 250 && fridge.description.substring(0, 250) + "..."}</Text>
                         </MapPopUp>
                      </MapCallOut>
                   </Marker>
@@ -143,11 +143,11 @@ export default function MapScreen({ navigation }) {
                         }}
                         image={require('../assets/Pins/Event_Pin.png')}
                      >
-                        <MapCallOut onPress={() => { Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.eventLocation}`) }} tooltip >
+                        <MapCallOut onPress={() => { ShowToasty(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${event.eventLocation}`) }} tooltip >
                            <MapPopUp>
                               <Header>{event.eventName}</Header>
                               <Text><BoldText>Location:</BoldText> {event.eventLocation}</Text>
-                              <Text><BoldText>Description:</BoldText> {event.eventContent.substring(0, 250) + "..."}</Text>
+                              <Text><BoldText>Description:</BoldText> {event.eventContent.length < 250 && event.eventContent}{event.eventContent.length > 250 && event.eventContent.substring(0, 250) + "..."}</Text>
                            </MapPopUp>
                         </MapCallOut>
                      </Marker>
@@ -172,7 +172,7 @@ export default function MapScreen({ navigation }) {
                   duration={500}
                   delay={0}
                >
-                  <Toast txt="Your pins are loading!" source={Chou.Surprised}/>
+                  <Toast txt="Your pins are loading!" source={Chou.Surprised} />
                </Animatable.View>
             }
             {Loaded === true &&
@@ -188,10 +188,28 @@ export default function MapScreen({ navigation }) {
                      }
                   }}
                   style={styles.container}
-                  duration={1500}
+                  duration={1250}
                   delay={3500}
                >
-                  <Toast txt="Your pins have loaded!"/>
+                  <Toast txt="Your pins have loaded!" />
+               </Animatable.View>
+            }
+            {Toasty === true &&
+               <Animatable.View 
+                  animation={{
+                     from: {
+                        opacity: 0,
+                        translateY: 100
+                     },
+                     to: {
+                        opacity: 1,
+                        translateY: 0
+                     }
+                  }}
+                  style={styles.container}
+                  duration={1500}
+               >
+                  <Toast txt="Directions have been given!" source={Chou.Happy} onPress={()=>ShowToasty(false)}/>
                </Animatable.View>
             }
 
