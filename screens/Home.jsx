@@ -9,12 +9,13 @@ import * as Animatable from 'react-native-animatable';
 import { useState, useEffect } from 'react';
 
 const ChouImage = styled(Image)`
-width:95%;
-height:50%;
+width:${Dimensions.get('window').width * .90}px;
+height:${Dimensions.get('window').height * .50}px;
+// height:50%;
 `
 const TextFlexBox = styled(FlexBox)`
 textAlign:center;
-width:96%;
+width:95%;
 `
 
 export default function Home({ navigation }) {
