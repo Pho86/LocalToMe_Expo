@@ -1,5 +1,5 @@
 import { db } from '../firebase/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, getDoc } from 'firebase/firestore';
 // import { getStorage } from "firebase/storage";
 
 // retreive food banks for map

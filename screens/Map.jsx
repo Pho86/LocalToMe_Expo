@@ -12,7 +12,7 @@ import { Chou } from '../components/Toast';
 
 const MapCallOut = styled(Callout)`
 max-width:275px;
-height:275px;
+height:250px;
 background:white;
 padding:3% 4%;
 `
@@ -57,18 +57,13 @@ export default function MapScreen({ navigation }) {
 
    useEffect(() => {
       SetLoaded(false)
-      ShowToasty(true)
       parseLocationInfo();
 
-      // ChangeToasty("HELLEO")
    }, []);
 
-   // <Button onPress={()=>parseLocationInfo()} title="test"> </Button>
    return (
       <View>
 
-
-         {/* <Toast /> */}
 
          <Container>
 
@@ -194,7 +189,7 @@ export default function MapScreen({ navigation }) {
                   }}
                   style={styles.container}
                   duration={1500}
-                  delay={5000}
+                  delay={3500}
                >
                   <Toast txt="Your pins have loaded!"/>
                </Animatable.View>

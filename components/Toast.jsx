@@ -28,7 +28,7 @@ display:flex;
 align-self:flex-end;
 `
 const ToastView = styled(View)`
-padding-left:15px;
+padding-left:25px;
 `
 const ToastText = styled(AppText)`
 `

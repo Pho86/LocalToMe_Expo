@@ -14,20 +14,20 @@ height:50%;
 `
 const TextFlexBox = styled(FlexBox)`
 textAlign:center;
-width:96%;
+width:95%;
 `
 
-export default function Home({ navigation }) {
+export default function Home2({ navigation }) {
 
    const [Toasty, ShowToasty] = useState(true);
 
    return (
       <View>
          <Container jC={"space-evenly"}>
-            <ChouImage source={require('../assets/Chou/Chou_Pin.png')} ></ChouImage>
+            <ChouImage source={require('../assets/Chou/Chou_News.png')} ></ChouImage>
             <TextFlexBox>
-               <AppText txt="Find Food Resources Near You" size={"24px"} weight={"800"} align={"center"}></AppText>
-               <AppText txt="From the comfort of your phone, you can find thousands of available food assistance near you." align={"center"}></AppText>
+               <AppText txt="Keep Track of Food Banks’ News" size={"24px"} weight={"800"} align={"center"}></AppText>
+               <AppText txt="Be updated on News & Resources from different Food Banks and stay informed." align={"center"}></AppText>
             </TextFlexBox>
             <Button txt='Get Started' onButtonPress={() => navigation.navigate("Map")}> </Button>
 
