@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "description":"LocalToMe is an application that locates and provides low-income families/individuals with free & accessible food resources near their area within their budgets.",
+    "description":"LocalToMe is an application that locates and provides low-income families/individuals with free & accessible food resources near their area within their budgets. - Chou",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

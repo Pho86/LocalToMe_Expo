@@ -3,11 +3,11 @@
 </div>
 
 #
-Expo application for LocalToMe, web application repo is [located here](https://github.com/phoenixlai833/LocalToMe).
-<br/>
 Can view the [Expo Project here](https://expo.dev/@localtome/LocalToMe).
 <br/>
-Learn more about LocalToMe in the [wiki](https://github.com/phoenixlai833/LocalToMe/wiki)!
+Expo application for LocalToMe, web application repo is [located here](https://github.com/phoenixlai833/LocalToMe).
+<br/>
+Learn more about LocalToMe in the [main repo's wiki](https://github.com/phoenixlai833/LocalToMe/wiki)!
 ##
 Can open expo application by opening expo go with this link: 
 _exp://exp.host/@localtome/LocalToMe?release-channel=default_ 

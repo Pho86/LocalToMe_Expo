@@ -49,7 +49,7 @@ export default function Toast({
       <ToastContainer border={border}>
          <ChouImage source={source} />
          <ToastView>
-            <ToastText txt={txt} color={color}></ToastText>
+            <ToastText txt={txt} color={color} family={"Rubik_400Regular"}></ToastText>
          </ToastView>
       </ToastContainer>
    )

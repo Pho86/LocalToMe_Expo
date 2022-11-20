@@ -27,7 +27,7 @@ export default function RegButton({
    return (
       <View >
          <ButtonCont onPress={onButtonPress} width={width} height={height}>
-            <AppText color={Colours.background} txt={txt} size={"16px"}></AppText>
+            <AppText color={Colours.background} txt={txt} size={"16px"} family={"Rubik_400Regular"}></AppText>
          </ButtonCont>
       </View>
    )

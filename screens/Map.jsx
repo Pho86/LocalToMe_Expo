@@ -28,6 +28,7 @@ export default function MapScreen({ navigation }) {
 
 
    const ParseLocationInfo = async () => {
+      SetLoaded(false)
       const foodBanksData = await getFoodBanks();
       const foodBanksList = JSON.parse(JSON.stringify(foodBanksData));
       setBanks(foodBanksList)
@@ -44,9 +45,7 @@ export default function MapScreen({ navigation }) {
    }
 
    useEffect(() => {
-      // SetLoaded(false);
       ParseLocationInfo();
-
    }, []);
 
    return (
@@ -85,8 +84,8 @@ export default function MapScreen({ navigation }) {
                      }
                   }}
                   style={styles.container}
-                  duration={500}
-                  delay={0}
+                  duration={1500}
+                  delay={500}
                >
                   <Toast txt="Your pins are loading!" source={Chou.Surprised} />
                </Animatable.View>
@@ -108,7 +107,7 @@ export default function MapScreen({ navigation }) {
                   duration={1250}
                   delay={5000}
                >
-                  <Toast txt="Your pins have loaded!" />
+                  <Toast txt="All pins have loaded!" />
                </Animatable.View>
             }
 

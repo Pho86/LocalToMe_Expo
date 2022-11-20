@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Dimensions, Image, Link, ScrollView, Linking } from 'react-native';
 import { Marker, Popup, Callout } from 'react-native-maps';
 import styled from 'styled-components/native';
+import AppText from '../AppText';
 
 import * as Animatable from 'react-native-animatable';
 import Button from '../Button';
@@ -55,12 +56,12 @@ export default function FoodBankMarker({
          >
             <MapCallOut onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.location}`) }} tooltip >
                <MapPopUp>
-                  <Header>{fridge.name}</Header>
-                  <Padding><Text><BoldText>Location:</BoldText> {fridge.location}</Text></Padding>
-                  <Padding><Text><BoldText>Description:</BoldText> {fridge.description.length < 200 ? fridge.description : fridge.description.substring(0, 200) + "..."}</Text></Padding>
+                  <AppText txt={fridge.name} size={"18px"} family={"Rubik_600SemiBold"}></AppText>
+                  <Padding><Text><BoldText>Location: </BoldText><AppText txt={fridge.location} size={"14px"}> </AppText></Text></Padding>
+                  <Padding><Text><BoldText>Description: </BoldText><AppText txt={fridge.description.length < 200 ? fridge.description : fridge.description.substring(0, 200) + "..."} size={"14px"}> </AppText></Text></Padding>
                   <GetDirectionsView>
                      <Padding>
-                        <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                        <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"45px"} />
                      </Padding>
                   </GetDirectionsView>
                </MapPopUp>

@@ -15,7 +15,7 @@ height:${Dimensions.get('window').height * .50}px;
 `
 const TextFlexBox = styled(FlexBox)`
 textAlign:center;
-width:95%;
+width:${Dimensions.get('window').width * .95}px;
 `
 
 export default function Home({ navigation }) {
@@ -27,8 +27,8 @@ export default function Home({ navigation }) {
          <Container jC={"space-evenly"}>
             <ChouImage source={require('../assets/Chou/Chou_Pin.png')} ></ChouImage>
             <TextFlexBox>
-               <AppText txt="Find Food Resources Near You" size={"24px"} weight={"800"} align={"center"}></AppText>
-               <AppText txt="From the comfort of your phone, you can find thousands of available food assistance near you." align={"center"}></AppText>
+               <AppText txt="Find Food Resources Near You" align={"center"} family={"Rubik_700Bold"} size={"22px"} padding={"5px 0px"}></AppText>
+               <AppText txt="From the comfort of your phone, you can find thousands of available food assistance near you." align={"center"} size={"16px"} family={"Rubik_400Regular"}></AppText>
             </TextFlexBox>
             <Button txt='Get Started' onButtonPress={() => navigation.navigate("Map")}> </Button>
 

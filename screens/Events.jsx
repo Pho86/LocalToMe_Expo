@@ -38,14 +38,6 @@ export default function Events({ navigation }) {
                   <Text>{event.eventName}</Text>
                   <Image source={{ uri: event.eventImage }} style={{ width: 300, height: 150 }}></Image>
                   <Text>{event.eventContent}</Text>
-                  {/* <Text>{new Date(event.eventDate.seconds * 1000).toLocaleString(
-                  "default",
-                  { month: "short" }
-                  )}{" "}
-                  <br />
-                  {String(
-                     new Date(event.eventDate.seconds * 1000).getDate()
-                  ).padStart(2, "0")}</Text> */}
                </EventView>
             })}
 
