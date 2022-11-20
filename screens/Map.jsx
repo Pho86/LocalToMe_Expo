@@ -147,7 +147,7 @@ export default function MapScreen({ navigation }) {
                   duration={3000}
                   delay={1000}
                >
-                  <Toast txt="Directions have been given!" source={Chou.Happy} onPress={() => ShowDirectionsToast(false)} />
+                  <Toast txt="Directions have been given!" source={Chou.Smug} onPress={() => ShowDirectionsToast(false)} />
                </Animatable.View>
             }
 
