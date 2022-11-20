@@ -7,7 +7,6 @@ import Button from '../Button';
 
 const MapCallOut = styled(Callout)`
 max-width:275px;
-// height:100%;
 height:auto;
 position:relative;
 flex:1;

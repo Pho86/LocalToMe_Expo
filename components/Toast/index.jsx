@@ -14,11 +14,8 @@ borderRadius:15px;
 justify-content:flex-start;
 align-items:center;
 width:${Dimensions.get('window').width * .80}px;
-// width:1000px;
 height:60px;
 position:absolute;
-// right:${Dimensions.get('window').width * .1}px;
-// top:${Dimensions.get('window').height * .90}px;
 zIndex:100;
 `
 const ChouImage = styled(Image)`
@@ -37,6 +34,7 @@ export const Chou = {
    Happy: require('../../assets/Chou/Chou_Happy.png'),
    Sad: require('../../assets/Chou/Chou_Sad.png'),
    Surprised: require('../../assets/Chou/Chou_Surprised.png'),
+   Smug: require('../../assets/Chou/Chou_Smug.png'),
 }
 
 export default function Toast({

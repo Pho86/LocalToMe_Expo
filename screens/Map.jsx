@@ -64,7 +64,7 @@ export default function MapScreen({ navigation }) {
                style={styles.map}
                onPress={() => { if (DirectionsToast === true) ShowDirectionsToast(false) }}
             >
-               
+
                <FoodBankMarker food_banks={food_banks} onPopUpPress={() => { ShowDirectionsToast(true) }} />
                <PantriesMarker pantries={pantries} onPopUpPress={() => { ShowDirectionsToast(true) }} />
                <FridgesMarker fridges={fridges} onPopUpPress={() => { ShowDirectionsToast(true) }} />
@@ -127,7 +127,7 @@ export default function MapScreen({ navigation }) {
                   style={styles.container}
                   duration={1500}
                >
-                  <Toast txt="Directions have been given!" source={Chou.Happy} onPress={() => ShowDirectionsToast(false)} />
+                  <Toast txt="Directions have been given!" source={Chou.Smug} onPress={() => ShowDirectionsToast(false)} />
                </Animatable.View>
             }
 
@@ -144,8 +144,8 @@ export default function MapScreen({ navigation }) {
                      }
                   }}
                   style={styles.container}
-                  duration={1500}
-                  delay={250}
+                  duration={3000}
+                  delay={1000}
                >
                   <Toast txt="Directions have been given!" source={Chou.Happy} onPress={() => ShowDirectionsToast(false)} />
                </Animatable.View>
