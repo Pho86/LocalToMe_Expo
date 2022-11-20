@@ -2,6 +2,7 @@
   "name": "localtome",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
+  "description": "LocalToMe is a application that locates and provides low-income families/individuals with free & accessible food resources near their area within their budgets.",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
