@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { Text, View, Button, TouchableOpacity } from "react-native";
-import { Colours } from "../styles";
-import AppText from "./AppText";
+import { Colours } from "../../styles";
+import AppText from "../AppText";
 import { Dimensions } from 'react-native';
 
 

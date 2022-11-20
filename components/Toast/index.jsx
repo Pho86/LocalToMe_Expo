@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { Text, View, Button, TouchableOpacity, Image, Dimensions } from "react-native";
-import { Colours } from "../styles";
-import AppText from "./AppText";
+import { Colours } from "../../styles";
+import AppText from "../AppText";
 
 
 const ToastContainer = styled(View)`
@@ -34,9 +34,9 @@ const ToastText = styled(AppText)`
 `
 
 export const Chou = {
-   Happy: require('../assets/Chou/Chou_Happy.png'),
-   Sad: require('../assets/Chou/Chou_Sad.png'),
-   Surprised: require('../assets/Chou/Chou_Surprised.png'),
+   Happy: require('../../assets/Chou/Chou_Happy.png'),
+   Sad: require('../../assets/Chou/Chou_Sad.png'),
+   Surprised: require('../../assets/Chou/Chou_Surprised.png'),
 }
 
 export default function Toast({
