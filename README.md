@@ -1,5 +1,5 @@
 <div align="center">
-<img width="250" height="250" alt="local to me logo" src="/assets/block_logo.png"/>
+<img width="250" alt="local to me logo" src="/assets/block_logo.png"/>
 </div>
 
 #
