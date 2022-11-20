@@ -37,7 +37,8 @@ const Padding = styled(View)`
 padding-top:5px;
 `
 export default function FoodBankMarker({
-   events
+   events,
+   onPopUpPress = () => { { } },
 }
 ) {
    return (<View>
@@ -51,7 +52,7 @@ export default function FoodBankMarker({
                image={require('../../assets/Pins/Event_Pin.png')}
                style={{ flex: 1 }}
             >
-               <MapCallOut onPress={() => { ShowDirectionsToast(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${event.eventLocation}`) }} tooltip>
+               <MapCallOut onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${event.eventLocation}`) }} tooltip>
                   <MapPopUp>
                      <Header>{event.eventName}</Header>
                      <Padding><Text><BoldText>Location:</BoldText> {event.eventLocation}</Text></Padding>

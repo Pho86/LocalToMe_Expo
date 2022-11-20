@@ -39,7 +39,8 @@ const DirectionButton = styled(Button)`
 `
 
 export default function FoodBankMarker({
-   food_banks
+   food_banks,
+   onPopUpPress = () => { { } },
 }
 ) {
    return (<View>
@@ -53,7 +54,7 @@ export default function FoodBankMarker({
                image={require('../../assets/Pins/Food_Bank_Pin.png')}
                style={{ flex: 1 }}
             >
-               <MapCallOut tooltip onPress={() => { ShowDirectionsToast(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${food_bank.location_address}`) }}>
+               <MapCallOut tooltip onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${food_bank.location_address}`) }}>
                   <MapPopUp>
                      <Header>{food_bank.program_name}</Header>
                      <Padding>

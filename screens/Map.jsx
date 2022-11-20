@@ -64,11 +64,11 @@ export default function MapScreen({ navigation }) {
                style={styles.map}
                onPress={() => { if (DirectionsToast === true) ShowDirectionsToast(false) }}
             >
-               <FoodBankMarker food_banks={food_banks} />
-
-               <PantriesMarker pantries={pantries} onPopUpPress={() => { ShowDirectionsToast(true); }} />
-               <FridgesMarker fridges={fridges} />
-               <EventMarker events={events} />
+               
+               <FoodBankMarker food_banks={food_banks} onPopUpPress={() => { ShowDirectionsToast(true) }} />
+               <PantriesMarker pantries={pantries} onPopUpPress={() => { ShowDirectionsToast(true) }} />
+               <FridgesMarker fridges={fridges} onPopUpPress={() => { ShowDirectionsToast(true) }} />
+               <EventMarker events={events} onPopUpPress={() => { ShowDirectionsToast(true) }} />
 
             </MapView>
 

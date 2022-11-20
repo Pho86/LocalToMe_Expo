@@ -40,7 +40,8 @@ padding-top:5px;
 `
 
 export default function FoodBankMarker({
-   fridges
+   fridges,
+   onPopUpPress = () => { { } },
 }
 ) {
    return (<View>
@@ -53,7 +54,7 @@ export default function FoodBankMarker({
             image={require('../../assets/Pins/Fridge_Pin.png')}
             style={{ flex: 1 }}
          >
-            <MapCallOut onPress={() => { ShowDirectionsToast(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.location}`) }} tooltip >
+            <MapCallOut onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.location}`) }} tooltip >
                <MapPopUp>
                   <Header>{fridge.name}</Header>
                   <Padding><Text><BoldText>Location:</BoldText> {fridge.location}</Text></Padding>

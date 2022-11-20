@@ -42,7 +42,7 @@ padding-top:5px;
 
 export default function PantriesMarker({
    pantries,
-   onPopUpPress=()=>{}
+   onPopUpPress = () => { { } },
 }
 ) {
    return (<View>
@@ -55,9 +55,8 @@ export default function PantriesMarker({
             image={require('../../assets/Pins/Pantry_Pin.png')}
             style={{ flex: 1 }}
          >
-            <MapCallOut onPress={()=>{{onPopUpPress}} }  tooltip >
-            {/* <MapCallOut onPress={() => {onPress; Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip > */}
-               <MapPopUp>
+            <MapCallOut onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip >
+               <MapPopUp >
                   <Header>{pantry.name}</Header>
                   <Padding><Text><BoldText>Location:</BoldText> {pantry.location}</Text></Padding>
                   <Padding><Text><BoldText>Description:</BoldText> {pantry.description.length < 200 ? pantry.description : pantry.description.substring(0, 200) + "..."}</Text></Padding>
