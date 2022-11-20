@@ -25,7 +25,9 @@ const Header = styled(Text)`
 fontSize:18px;
 fontWeight:800;
 `
-
+const Padding = styled(View)`
+padding-top:5px;
+`
 const BoldText = styled(Text)`
 fontWeight:600;
 `
@@ -54,12 +56,16 @@ export default function FoodBankMarker({
                <MapCallOut tooltip onPress={() => { ShowDirectionsToast(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${food_bank.location_address}`) }}>
                   <MapPopUp>
                      <Header>{food_bank.program_name}</Header>
-                     <Text><BoldText>Location:</BoldText> {food_bank.location_address}</Text>
-                     {food_bank.organization_name && <Text><BoldText>Organization Name:</BoldText> {food_bank.organization_name}</Text>}
-                     {food_bank.signup_email && <Text><BoldText>Email:</BoldText> {food_bank.signup_email}</Text>}
-                     {food_bank.description && <Text><BoldText>Description:</BoldText> {food_bank.description.length < 200 ? food_bank.description : food_bank.description.substring(0, 200) + "..."}</Text>}
+                     <Padding>
+                        <Text><BoldText>Location:</BoldText> {food_bank.location_address}</Text>
+                     </Padding>
+                     {food_bank.organization_name && <Padding><Text><BoldText>Organization Name:</BoldText> {food_bank.organization_name}</Text></Padding>}
+                     {food_bank.signup_email && <Padding><Text><BoldText>Email:</BoldText> {food_bank.signup_email}</Text></Padding>}
+                     {food_bank.description && <Padding><Text><BoldText>Description:</BoldText> {food_bank.description.length < 200 ? food_bank.description : food_bank.description.substring(0, 200) + "..."}</Text></Padding>}
                      <GetDirectionsView>
-                        <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                        <Padding>
+                           <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                        </Padding>
                      </GetDirectionsView>
                   </MapPopUp>
                </MapCallOut>

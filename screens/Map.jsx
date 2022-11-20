@@ -44,7 +44,7 @@ export default function MapScreen({ navigation }) {
    }
 
    useEffect(() => {
-      SetLoaded(false);
+      // SetLoaded(false);
       ParseLocationInfo();
 
    }, []);
@@ -62,11 +62,11 @@ export default function MapScreen({ navigation }) {
                   longitudeDelta: 0.1,
                }}
                style={styles.map}
-               onPress={() => {if(DirectionsToast === true) ShowDirectionsToast(false)}}
+               onPress={() => { if (DirectionsToast === true) ShowDirectionsToast(false) }}
             >
                <FoodBankMarker food_banks={food_banks} />
 
-               <PantriesMarker pantries={pantries} />
+               <PantriesMarker pantries={pantries} onPopUpPress={() => { ShowDirectionsToast(true); }} />
                <FridgesMarker fridges={fridges} />
                <EventMarker events={events} />
 

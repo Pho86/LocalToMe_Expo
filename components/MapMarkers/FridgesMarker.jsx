@@ -35,6 +35,9 @@ display:flex;
 `
 const DirectionButton = styled(Button)`
 `
+const Padding = styled(View)`
+padding-top:5px;
+`
 
 export default function FoodBankMarker({
    fridges
@@ -53,10 +56,12 @@ export default function FoodBankMarker({
             <MapCallOut onPress={() => { ShowDirectionsToast(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.location}`) }} tooltip >
                <MapPopUp>
                   <Header>{fridge.name}</Header>
-                  <Text><BoldText>Location:</BoldText> {fridge.location}</Text>
-                  <Text><BoldText>Description:</BoldText> {fridge.description.length < 200 ? fridge.description : fridge.description.substring(0, 200) + "..."}</Text>
+                  <Padding><Text><BoldText>Location:</BoldText> {fridge.location}</Text></Padding>
+                  <Padding><Text><BoldText>Description:</BoldText> {fridge.description.length < 200 ? fridge.description : fridge.description.substring(0, 200) + "..."}</Text></Padding>
                   <GetDirectionsView>
-                     <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                     <Padding>
+                        <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                     </Padding>
                   </GetDirectionsView>
                </MapPopUp>
             </MapCallOut>

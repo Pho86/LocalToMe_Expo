@@ -36,8 +36,13 @@ display:flex;
 const DirectionButton = styled(Button)`
 `
 
+const Padding = styled(View)`
+padding-top:5px;
+`
+
 export default function PantriesMarker({
-   pantries
+   pantries,
+   onPopUpPress=()=>{}
 }
 ) {
    return (<View>
@@ -50,13 +55,16 @@ export default function PantriesMarker({
             image={require('../../assets/Pins/Pantry_Pin.png')}
             style={{ flex: 1 }}
          >
-            <MapCallOut onPress={() => { ShowDirectionsToast(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip >
+            <MapCallOut onPress={()=>{{onPopUpPress}} }  tooltip >
+            {/* <MapCallOut onPress={() => {onPress; Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip > */}
                <MapPopUp>
                   <Header>{pantry.name}</Header>
-                  <Text><BoldText>Location:</BoldText> {pantry.location}</Text>
-                  <Text><BoldText>Description:</BoldText> {pantry.description.length < 200 ? pantry.description : pantry.description.substring(0, 200) + "..."}</Text>
+                  <Padding><Text><BoldText>Location:</BoldText> {pantry.location}</Text></Padding>
+                  <Padding><Text><BoldText>Description:</BoldText> {pantry.description.length < 200 ? pantry.description : pantry.description.substring(0, 200) + "..."}</Text></Padding>
                   <GetDirectionsView>
-                     <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                     <Padding>
+                        <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                     </Padding>
                   </GetDirectionsView>
                </MapPopUp>
             </MapCallOut>

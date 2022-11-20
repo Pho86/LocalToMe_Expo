@@ -33,9 +33,9 @@ const GetDirectionsView = styled(View)`
 align-self:center;   
 display:flex;
 `
-const DirectionButton = styled(Button)`
+const Padding = styled(View)`
+padding-top:5px;
 `
-
 export default function FoodBankMarker({
    events
 }
@@ -54,10 +54,13 @@ export default function FoodBankMarker({
                <MapCallOut onPress={() => { ShowDirectionsToast(true); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${event.eventLocation}`) }} tooltip>
                   <MapPopUp>
                      <Header>{event.eventName}</Header>
-                     <Text><BoldText>Location:</BoldText> {event.eventLocation}</Text>
-                     <Text><BoldText>Description:</BoldText> {event.eventContent.length < 200 ? event.eventContent : event.eventContent.substring(0, 200) + "..."}</Text>
+                     <Padding><Text><BoldText>Location:</BoldText> {event.eventLocation}</Text></Padding>
+                     <Padding><Text><BoldText>Description:</BoldText> {event.eventContent.length < 200 ? event.eventContent : event.eventContent.substring(0, 200) + "..."}</Text></Padding>
                      <GetDirectionsView>
-                        <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                        <Padding>
+
+                           <Button txt="Get Directions" width={Dimensions.get('window').width * .35} height={"50px"} />
+                        </Padding>
                      </GetDirectionsView>
                   </MapPopUp>
                </MapCallOut>
