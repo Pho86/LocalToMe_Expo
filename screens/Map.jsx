@@ -28,7 +28,6 @@ export default function MapScreen({ navigation }) {
 
 
    const ParseLocationInfo = async () => {
-      SetLoaded(false)
       const foodBanksData = await getFoodBanks();
       const foodBanksList = JSON.parse(JSON.stringify(foodBanksData));
       setBanks(foodBanksList)
@@ -45,6 +44,7 @@ export default function MapScreen({ navigation }) {
    }
 
    useEffect(() => {
+      SetLoaded(false)
       ParseLocationInfo();
    }, []);
 
