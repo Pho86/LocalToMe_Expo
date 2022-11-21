@@ -23,17 +23,19 @@ const MyText = styled(Text)`
    font-size: ${(props) => props.size || "16px"};
    padding: ${(props) => props.padding || "0px 0px 0px 0px"};
    font-weight: ${(props) => props.weight || "400"};
-   text-align: ${(props)=> props.align || "left"};
-
+   text-align: ${(props) => props.align || "left"};
+   font-family: ${(props) => props.family || "Rubik_400Regular"};
+   padding: ${(props)=> props.padding || "0px"}
    `
 
-   export default function AppText({
-      txt = "Default Text",
-      color = "#272727",
-      size = "16px",
-      family = 'Rubik_700Bold',
-      weight = "400",
-      align = "left"
+export default function AppText({
+   txt = "Default Text",
+   color = "#272727",
+   size = "16px",
+   family = 'Rubik_400Regular',
+   weight = "400",
+   align = "left",
+   padding= "0px",
 }) {
    let [fontsLoaded] = useFonts({
       Rubik_300Light,
@@ -50,16 +52,19 @@ const MyText = styled(Text)`
       Rubik_700Bold_Italic,
       Rubik_800ExtraBold_Italic,
       Rubik_900Black_Italic,
-    });
+   });
+   if (!fontsLoaded) {
+      return <View />;
+   }
+
    return (
-      <View>
-         <MyText
-            color={color}
-            size={size}
-            weight={weight}
-            family={family}
-            align={align}
-         >{txt}</MyText>
-      </View>
+      <MyText
+         color={color}
+         size={size}
+         weight={weight}
+         family={family}
+         align={align}
+         padding={padding}
+      >{txt}</MyText>
    )
 }

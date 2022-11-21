@@ -2,10 +2,12 @@
   "expo": {
     "name": "LocalToMe",
     "slug": "LocalToMe",
+    "owner": "localtome",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "description":"LocalToMe is an application that locates and provides low-income families/individuals with free & accessible food resources near their area within their budgets. - Chou",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,16 +20,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pho86.LocalToMe"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.pho86.LocalToMe"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e1c8316e-2e58-4c1b-9352-22496f81dd44"
+      }
     }
   }
 }

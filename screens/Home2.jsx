@@ -9,26 +9,25 @@ import * as Animatable from 'react-native-animatable';
 import { useState, useEffect } from 'react';
 
 const ChouImage = styled(Image)`
-width:${Dimensions.get('window').width * .90}px;
-height:${Dimensions.get('window').height * .50}px;
-// height:50%;
+width:95%;
+height:50%;
 `
 const TextFlexBox = styled(FlexBox)`
 textAlign:center;
-width:${Dimensions.get('window').width * .95}px;
+width:95%;
 `
 
-export default function Home({ navigation }) {
+export default function Home2({ navigation }) {
 
    const [Toasty, ShowToasty] = useState(true);
 
    return (
       <View>
          <Container jC={"space-evenly"}>
-            <ChouImage source={require('../assets/Chou/Chou_Pin.png')} ></ChouImage>
+            <ChouImage source={require('../assets/Chou/Chou_News.png')} ></ChouImage>
             <TextFlexBox>
-               <AppText txt="Find Food Resources Near You" align={"center"} family={"Rubik_700Bold"} size={"22px"} padding={"5px 0px"}></AppText>
-               <AppText txt="From the comfort of your phone, you can find thousands of available food assistance near you." align={"center"} size={"16px"} family={"Rubik_400Regular"}></AppText>
+               <AppText txt="Keep Track of Food Banks’ News" size={"24px"} weight={"800"} align={"center"}></AppText>
+               <AppText txt="Be updated on News & Resources from different Food Banks and stay informed." align={"center"}></AppText>
             </TextFlexBox>
             <Button txt='Get Started' onButtonPress={() => navigation.navigate("Map")}> </Button>
 

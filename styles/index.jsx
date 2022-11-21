@@ -14,6 +14,7 @@ export const Container = styled(View)`
    align-items: center;
    gap:${props => props.gap || "0px"};
    height:100%;
+   padding:${props => props.pD || "0px"}
 `
 export const Colours = {
    primary: "#108928",
