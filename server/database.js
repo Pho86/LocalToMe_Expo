@@ -57,17 +57,17 @@ export async function getFridges() {
 
 // maybe add in future
 
-// fetch event || same as one for the map
-export async function getEvents() {
-  const eventCollection = collection(db, "event");
-  const eventSnap = await getDocs(eventCollection);
-  const events = eventSnap.docs.map((doc) => {
-    let id = doc.id;
-    let data = doc.data();
-    return { id, ...data };
-  });
-  return events;
-}
+// fetch event || use the same as one as the map
+// export async function getEvents() {
+//   const eventCollection = collection(db, "event");
+//   const eventSnap = await getDocs(eventCollection);
+//   const events = eventSnap.docs.map((doc) => {
+//     let id = doc.id;
+//     let data = doc.data();
+//     return { id, ...data };
+//   });
+//   return events;
+// }
 
 // fetch all news items
 export async function getAllNews() {
