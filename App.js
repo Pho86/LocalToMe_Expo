@@ -5,16 +5,15 @@ import HomeScreen from './screens/Home';
 import HomeScreen2 from './screens/Home2';
 import EventScreen from './screens/Events';
 import NewsScreen from './screens/News';
-import { ScrollView } from 'react-native';
 import { Dimensions } from 'react-native';
 import { useState, useEffect } from 'react';
 import LottieView from 'lottie-react-native';
 import { Container } from './styles'
 import AppText from './components/AppText';
-import AnimatedLottieView from 'lottie-react-native';
 import * as Animatable from 'react-native-animatable';
-import { View } from 'react-native-animatable';
+
 const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   const [loading, setLoading] = useState(true);

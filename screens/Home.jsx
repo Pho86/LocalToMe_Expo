@@ -12,7 +12,6 @@ import LottieView from 'lottie-react-native';
 const ChouImage = styled(Image)`
 width:${Dimensions.get('window').width * .90}px;
 height:${Dimensions.get('window').height * .50}px;
-// height:50%;
 `
 const TextFlexBox = styled(FlexBox)`
 textAlign:center;
@@ -24,18 +23,22 @@ export default function Home({ navigation }) {
    return (
       <View>
          <Container jC={"space-evenly"}>
+
             <Animatable.View animation="pulse" easing="ease-in-out" delay={100}>
                <ChouImage source={require('../assets/Chou/Chou_Pin.png')} ></ChouImage>
             </Animatable.View>
+
             <TextFlexBox>
                <Animatable.View animation="fadeIn" easing="ease-in-out" delay={100}>
                   <AppText txt="Find Food Resources Near You" align={"center"} family={"Rubik_700Bold"} size={"22px"} padding={"5px 0px"}></AppText>
                   <AppText txt="From the comfort of your phone, you can find thousands of available food assistance near you." align={"center"} size={"16px"} family={"Rubik_400Regular"}></AppText>
                </Animatable.View>
             </TextFlexBox>
+
             <Animatable.View animation="bounceIn" easing="ease-in-out" >
                <Button txt='Get Started' onButtonPress={() => navigation.navigate("Map")}> </Button>
             </Animatable.View>
+            
          </Container>
       </View>
    )

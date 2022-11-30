@@ -1,6 +1,5 @@
 import { db } from '../firebase/firebase';
 import { collection, getDocs, getDoc } from 'firebase/firestore';
-// import { getStorage } from "firebase/storage";
 
 // retreive food banks for map
 export async function getFoodBanks() {
@@ -58,23 +57,19 @@ export async function getFridges() {
 
 // maybe add in future
 
-export async function getEvent(id) {
-  const eventRef = doc(db, "event", id);
-  const eventSnap = await getDoc(eventRef);
-  const fileUrl = eventSnap.data().eventImage;
-  let fileName = decodeURIComponent(fileUrl.split('/').pop().split('?')[0])
-  const event = { id, ...eventSnap.data(), fileName };
-  const eventCreatorSnap = await getDoc(event.eventCreatorId);//should change the eventCreatorId to eventCreatorData
-  const eventCreator = { id: eventCreatorSnap.id, ...eventCreatorSnap.data() };
-  const joinedEvent = {
-    ...event,
-    eventCreatorId: eventCreator
-  }
-  return joinedEvent;
-  // console.log('what is', event, eventCreator)
+// fetch event || same as one for the map
+export async function getEvents() {
+  const eventCollection = collection(db, "event");
+  const eventSnap = await getDocs(eventCollection);
+  const events = eventSnap.docs.map((doc) => {
+    let id = doc.id;
+    let data = doc.data();
+    return { id, ...data };
+  });
+  return events;
 }
 
-
+// fetch all news items
 export async function getAllNews() {
   const newsCollection = collection(db, "news");
   const newsSnap = await getDocs(newsCollection);
@@ -88,15 +83,3 @@ export async function getAllNews() {
   return news;
 }
 
-
-//one news item
-export async function getNews(id) {
-  const newsRef = doc(db, "news", id);
-  const newsSnap = await getDoc(newsRef);
-  const fileUrl = newsSnap.data().newsImage;
-  let fileName = decodeURIComponent(fileUrl.split('/').pop().split('?')[0])
-  // console.log(fileName)
-  const news = { id, ...newsSnap.data(), fileName };
-  // console.log('hi', news)
-  return news;
-}
