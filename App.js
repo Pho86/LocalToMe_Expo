@@ -46,10 +46,10 @@ export default function App() {
           headerShown: false
         }}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Home2" component={HomeScreen2} />
+        {/* <Stack.Screen name="Home2" component={HomeScreen2} /> */}
         <Stack.Screen name="Map" component={MapScreen} />
-        <Stack.Screen name="Events" component={EventScreen} />
-        <Stack.Screen name="News" component={NewsScreen} />
+        {/* <Stack.Screen name="Events" component={EventScreen} /> */}
+        {/* <Stack.Screen name="News" component={NewsScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -16,7 +16,7 @@ const TextFlexBox = styled(FlexBox)`
 textAlign:center;
 width:95%;
 `
-
+// UNUSED PAGE
 export default function Home2({ navigation }) {
 
    const [Toasty, ShowToasty] = useState(true);
