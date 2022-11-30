@@ -1,17 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions, Image, Link, ScrollView, Linking } from 'react-native';
 import MapView from 'react-native-maps';
-import { Marker, Popup, Callout } from 'react-native-maps';
 import { useState, useEffect } from 'react';
 import * as Animatable from 'react-native-animatable';
 import { getFoodBanks, getEvents, getPantries, getFridges } from "../server/database";
-import styled from 'styled-components/native';
-
 import { FlexBox, Container } from '../styles';
 
 import Toast from '../components/Toast';
 import { Chou } from '../components/Toast';
-import Button from '../components/Button';
 import FoodBankMarker from '../components/MapMarkers/FoodBankMarker';
 import PantriesMarker from '../components/MapMarkers/PantriesMarker';
 import FridgesMarker from '../components/MapMarkers/FridgesMarker';
@@ -26,7 +22,7 @@ export default function MapScreen({ navigation }) {
    const [events, setEvents] = useState([]);
    const [food_banks, setBanks] = useState([]);
 
-   
+
    const ParseLocationInfo = async () => {
       const foodBanksData = await getFoodBanks();
       const foodBanksList = JSON.parse(JSON.stringify(foodBanksData));
@@ -61,12 +57,10 @@ export default function MapScreen({ navigation }) {
                style={styles.map}
                onPress={() => { if (DirectionsToast === true) ShowDirectionsToast(false) }}
             >
-
                <FoodBankMarker food_banks={food_banks} onPopUpPress={() => { ShowDirectionsToast(true) }} />
                <PantriesMarker pantries={pantries} onPopUpPress={() => { ShowDirectionsToast(true) }} />
                <FridgesMarker fridges={fridges} onPopUpPress={() => { ShowDirectionsToast(true) }} />
                <EventMarker events={events} onPopUpPress={() => { ShowDirectionsToast(true) }} />
-
             </MapView>
 
             {Loaded === false &&
@@ -151,8 +145,6 @@ export default function MapScreen({ navigation }) {
       </View>
    )
 }
-
-
 
 const styles = StyleSheet.create({
    container: {
