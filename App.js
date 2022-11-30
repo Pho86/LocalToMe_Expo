@@ -21,13 +21,13 @@ export default function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3650);
+    }, 3500);
   }, [])
 
   if (loading) {
     return <Container>
       <Animatable.View animation="pulse" easing="ease-in-out" iterationCount={'infinite'} style={{paddingBottom:10}}>
-        <AppText txt="Welcome to LocalToMe!" size={"24px"} family={"Rubik_700Bold"}></AppText>
+        <AppText txt="Welcome to LocalToMe!" size={"28px"} family={"Rubik_700Bold"}></AppText>
       </Animatable.View>
       <LottieView
         autoPlay
