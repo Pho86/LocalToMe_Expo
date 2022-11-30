@@ -20,14 +20,13 @@ width:${Dimensions.get('window').width * .95}px;
 
 export default function Home({ navigation }) {
 
-   const [Toasty, ShowToasty] = useState(true);
-
    return (
       <View>
          <Container jC={"space-evenly"}>
             <Animatable.View animation="pulse" easing="ease-in-out">
                <ChouImage source={require('../assets/Chou/Chou_Pin.png')} ></ChouImage>
             </Animatable.View>
+            
             <TextFlexBox>
                <Animatable.View animation="fadeIn" easing="ease-in-out">
                   <AppText txt="Find Food Resources Near You" align={"center"} family={"Rubik_700Bold"} size={"22px"} padding={"5px 0px"}></AppText>
