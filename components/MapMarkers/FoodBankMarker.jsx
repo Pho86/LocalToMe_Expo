@@ -56,8 +56,8 @@ export default function FoodBankMarker({
                style={{ flex: 1 }}
             >
                <MapCallOut tooltip onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${food_bank.location_address}`) }}>
-                  {/* <MapPopUp> */}
-                  <MapPopUp style={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, borderBottomColor: Colours.primary, borderBottomWidth: 20 }}>
+                  <MapPopUp>
+                  {/* <MapPopUp style={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, borderBottomColor: Colours.primary, borderBottomWidth: 20 }}> */}
                      <AppText txt={food_bank.program_name} size={"18px"} family={"Rubik_600SemiBold"}></AppText>
                      <Padding><Text><BoldText>Location: </BoldText><AppText txt={food_bank.location_address} size={"14px"}> </AppText></Text></Padding>
                      {food_bank.organization_name && <Padding><Text><BoldText>Organization Name:</BoldText><AppText txt={food_bank.organization_name} size={"14px"}> </AppText></Text></Padding>}

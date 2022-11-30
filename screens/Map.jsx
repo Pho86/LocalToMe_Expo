@@ -26,7 +26,7 @@ export default function MapScreen({ navigation }) {
    const [events, setEvents] = useState([]);
    const [food_banks, setBanks] = useState([]);
 
-
+   
    const ParseLocationInfo = async () => {
       const foodBanksData = await getFoodBanks();
       const foodBanksList = JSON.parse(JSON.stringify(foodBanksData));
@@ -44,13 +44,11 @@ export default function MapScreen({ navigation }) {
    }
 
    useEffect(() => {
-      SetLoaded(false)
       ParseLocationInfo();
    }, []);
 
    return (
       <View>
-
          <Container>
             <MapView
                showsUserLocation
@@ -84,10 +82,10 @@ export default function MapScreen({ navigation }) {
                      }
                   }}
                   style={styles.container}
-                  duration={1500}
-                  delay={500}
+                  duration={2000}
+                  delay={100}
                >
-                  <Toast txt="Your pins are loading!" source={Chou.Surprised} />
+                  <Toast txt="Map pins are loading!" source={Chou.Surprised} />
                </Animatable.View>
             }
 
@@ -126,7 +124,7 @@ export default function MapScreen({ navigation }) {
                   style={styles.container}
                   duration={1500}
                >
-                  <Toast txt="Directions have been given!" source={Chou.Smug} onPress={() => ShowDirectionsToast(false)} />
+                  <Toast txt="Directions given!" source={Chou.Smug} onPress={() => ShowDirectionsToast(false)} />
                </Animatable.View>
             }
 
@@ -146,11 +144,9 @@ export default function MapScreen({ navigation }) {
                   duration={3000}
                   delay={1000}
                >
-                  <Toast txt="Directions have been given!" source={Chou.Smug} onPress={() => ShowDirectionsToast(false)} />
+                  <Toast txt="Directions given!" source={Chou.Smug} onPress={() => ShowDirectionsToast(false)} />
                </Animatable.View>
             }
-
-
          </Container>
       </View>
    )

@@ -57,7 +57,8 @@ export default function PantriesMarker({
             style={{ flex: 1 }}
          >
             <MapCallOut onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip >
-               <MapPopUp style={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, borderBottomColor: Colours.primary, borderBottomWidth: 20 }}>
+               <MapPopUp>
+               {/* <MapPopUp style={{borderBottomLeftRadius: 20, borderBottomRightRadius: 20, borderBottomColor: Colours.primary, borderBottomWidth: 20 }}> */}
                   <AppText txt={pantry.name} size={"18px"} family={"Rubik_600SemiBold"}></AppText>
                   <Padding><Text><BoldText>Location: </BoldText><AppText txt={pantry.location} size={"14px"}> </AppText></Text></Padding>
                   <Padding><Text><BoldText>Description: </BoldText><AppText txt={pantry.description.length < 200 ? pantry.description : pantry.description.substring(0, 200) + "..."} size={"14px"}> </AppText></Text></Padding>
