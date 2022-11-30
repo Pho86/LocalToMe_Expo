@@ -76,8 +76,6 @@ export default function MapScreen({ navigation }) {
                      }
                   }}
                   style={styles.container}
-                  duration={2000}
-                  delay={100}
                >
                   <Toast txt="Map pins are loading!" source={Chou.Surprised} />
                </Animatable.View>
