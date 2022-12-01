@@ -14,7 +14,6 @@ border-radius:12px;
 display:flex;
 justify-content:center;
 align-items:center;
-
 `
 
 export default function RegButton({

@@ -37,16 +37,17 @@ export default function MapScreen({ navigation }) {
       const fridgeData = await getFridges();
       const fridgeList = JSON.parse(JSON.stringify(fridgeData));
       setFridges(fridgeList);
-      setTimeout(() => {
-         setLoading(false);
-         setTimeout(() => {
-            SetLoaded(true);
-         }, 3500);
-      }, 3500);
+      SetLoaded(true);
+      // setTimeout(() => {
+         // setLoading(false);
+         // setTimeout(() => {
+            // SetLoaded(true);
+         // }, 3500);
+      // }, 3500);
    }
 
 
-   const [loading, setLoading] = useState(true);
+   const [loading, setLoading] = useState(false);
    useEffect(() => {
       ParseLocationInfo();
       // async function setLoaders() {
@@ -56,7 +57,6 @@ export default function MapScreen({ navigation }) {
       // async function fetchData() {
       // }
       // fetchData();
-
    }, [])
 
    if (loading) {
