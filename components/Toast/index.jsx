@@ -18,15 +18,18 @@ height:60px;
 position:absolute;
 zIndex:100;
 `
+
 const ChouImage = styled(Image)`
 width:55px;
 height:55px;
 display:flex;
 align-self:flex-end;
 `
+
 const ToastView = styled(View)`
 padding-left:20px;
 `
+
 const ToastText = styled(AppText)`
 `
 
@@ -39,7 +42,6 @@ export const Chou = {
 
 export default function Toast({
    txt = "Your pins are loading...",
-   onToastPress = () => { },
    color = "#108928",
    border = color,
    source = Chou.Happy

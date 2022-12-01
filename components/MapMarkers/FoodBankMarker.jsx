@@ -53,6 +53,7 @@ export default function FoodBankMarker({
                   longitude: Number(food_bank.longitude),
                }}
                image={require('../../assets/Pins/Food_Bank_Pin.png')}
+               tracksViewChanges={false}
                style={{ flex: 1 }}
             >
                <MapCallOut tooltip onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${food_bank.location_address}`) }}>

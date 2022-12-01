@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import * as Animatable from 'react-native-animatable';
 import { getFoodBanks, getEvents, getPantries, getFridges } from "../server/database";
 import { FlexBox, Container } from '../styles';
-
+import AppText from '../components/AppText';
+import LottieView from 'lottie-react-native';
 import Toast from '../components/Toast';
 import { Chou } from '../components/Toast';
 import FoodBankMarker from '../components/MapMarkers/FoodBankMarker';
@@ -36,13 +37,43 @@ export default function MapScreen({ navigation }) {
       const fridgeData = await getFridges();
       const fridgeList = JSON.parse(JSON.stringify(fridgeData));
       setFridges(fridgeList);
-      SetLoaded(true)
+      SetLoaded(true);
+      // setTimeout(() => {
+         // setLoading(false);
+         // setTimeout(() => {
+            // SetLoaded(true);
+         // }, 3500);
+      // }, 3500);
    }
 
+
+   const [loading, setLoading] = useState(false);
    useEffect(() => {
       ParseLocationInfo();
-   }, []);
+      // async function setLoaders() {
+      //    setLoading(false);
+      //    SetLoaded(true);
+      // }
+      // async function fetchData() {
+      // }
+      // fetchData();
+   }, [])
 
+   if (loading) {
+      return <Container>
+         <Animatable.View animation="pulse" easing="ease-in-out" iterationCount={'infinite'} style={{ paddingBottom: 10 }}>
+            <AppText txt="Map pins are loading!" size={"28px"} family={"Rubik_700Bold"}></AppText>
+         </Animatable.View>
+         <LottieView
+            autoPlay
+            style={{
+               width: Dimensions.get('window').width * .45,
+               height: Dimensions.get('window').height * .45,
+            }}
+            source={require('../assets/loading.json')}
+         />
+      </Container>
+   }
    return (
       <View>
          <Container>
@@ -76,8 +107,6 @@ export default function MapScreen({ navigation }) {
                      }
                   }}
                   style={styles.container}
-                  duration={2000}
-                  delay={100}
                >
                   <Toast txt="Map pins are loading!" source={Chou.Surprised} />
                </Animatable.View>

@@ -53,6 +53,7 @@ export default function FoodBankMarker({
                longitude: Number(fridge.longitude),
             }}
             image={require('../../assets/Pins/Fridge_Pin.png')}
+            tracksViewChanges={false}
             style={{ flex: 1 }}
          >
             <MapCallOut onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${fridge.location}`) }} tooltip >

@@ -35,7 +35,7 @@ export default function Home({ navigation }) {
                </Animatable.View>
             </TextFlexBox>
 
-            <Animatable.View animation="bounceIn" easing="ease-in-out" >
+            <Animatable.View animation="fadeIn" easing="ease-in-out" >
                <Button txt='Get Started' onButtonPress={() => navigation.navigate("Map")}> </Button>
             </Animatable.View>
             

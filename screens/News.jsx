@@ -15,7 +15,7 @@ const EventView = styled(View)`
 width:80%;
 padding-bottom:15px;
 `
-
+// UNUSED PAGE
 export default function News({ navigation }) {
    const [news, setNews] = useState([])
 
