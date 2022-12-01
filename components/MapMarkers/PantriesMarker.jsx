@@ -54,6 +54,7 @@ export default function PantriesMarker({
                longitude: Number(pantry.longitude),
             }}
             image={require('../../assets/Pins/Pantry_Pin.png')}
+            tracksViewChanges={false}
             style={{ flex: 1 }}
          >
             <MapCallOut onPress={() => { onPopUpPress(); Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${pantry.location}`) }} tooltip >
